@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Dagger gives compile time DaggerCarComponent
         CarComponent component = DaggerCarComponent.create();
-        // Need to pass/inject current activity to the CarComponent
+        // Need to pass/inject current activity to the CarComponent while there is no constructor available
         component.inject(this);
         // car = component.getCar();
         car.drive();
