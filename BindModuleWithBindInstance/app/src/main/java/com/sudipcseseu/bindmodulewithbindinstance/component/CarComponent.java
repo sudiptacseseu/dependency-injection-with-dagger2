@@ -7,11 +7,13 @@ import com.sudipcseseu.bindmodulewithbindinstance.module.PetrolEngineModule;
 import com.sudipcseseu.bindmodulewithbindinstance.module.WheelModule;
 
 import javax.inject.Named;
+import javax.inject.Singleton;
 
 import dagger.BindsInstance;
 import dagger.Component;
 
 // This defines which engine to use and can't use both of them at a time
+@Singleton
 @Component(modules = {WheelModule.class, PetrolEngineModule.class})
 public interface CarComponent {
     Car getCar();

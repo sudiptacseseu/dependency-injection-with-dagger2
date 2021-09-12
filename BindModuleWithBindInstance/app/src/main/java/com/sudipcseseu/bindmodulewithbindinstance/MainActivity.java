@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
 
     // For field injection, this field can't be private
     @Inject
-    Car car;
+    Car car1, car2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,6 +30,10 @@ public class MainActivity extends AppCompatActivity {
         // Need to pass/inject current activity to the CarComponent while there is no constructor available
         component.inject(this);
         // car = component.getCar();
-        car.drive();
+
+        // In this case, the same driver will drive both of the cars as driver is Singleton annotated and if we create 2 car components,
+        // then it will not work as Singleton only works on a single component, if we create another one then it will create it's own Singleton
+        car1.drive();
+        car2.drive();
     }
 }
