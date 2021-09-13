@@ -14,5 +14,9 @@ import dagger.Component;
 public interface AppComponent {
 
     // App component has the reference of activity component
-    ActivityComponent getActivityComponent(DieselEngineModule dieselEngineModule);
+    // ActivityComponent getActivityComponent(DieselEngineModule dieselEngineModule);
+
+
+    // Call the subcomponent builder
+    ActivityComponent.Builder getActivityComponentBuilder();
 }

@@ -16,19 +16,19 @@ import dagger.Subcomponent;
 // Activity level Singleton with custom scope
 @ActivityScope
 // This component depends on app component to create a driver
-@Subcomponent(modules = {WheelModule.class, DieselEngineModule.class})
+// @Subcomponent(modules = {WheelModule.class, DieselEngineModule.class})
+@Subcomponent(modules = {WheelModule.class, PetrolEngineModule.class})
 public interface ActivityComponent {
     Car getCar();
     void inject(MainActivity mainActivity);
 
-    // This builder isn't needed for diesel engine module as it's not using binds
-    /*@Component.Builder
+    // Subcomponent builder, this builder isn't needed for diesel engine module as it's not using binds
+    @Subcomponent.Builder
     interface Builder {
         @BindsInstance
         Builder horsePower(@Named("horse power") int horsePower);
         @BindsInstance
         Builder engineCapacity(@Named("engine capacity") int engineCapacity);
-        Builder appComponent(AppComponent component);
         ActivityComponent build();
-    }**/
+    }
 }

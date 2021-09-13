@@ -21,8 +21,15 @@ public class MainActivity extends AppCompatActivity {
 
         // Activity level component, that recreates when another activity creates and this activity component is getting from app component
         // as activity component is a subclass of app component
+        // ActivityComponent component = ((ScopeApp) getApplication()).getAppComponent().getActivityComponent(new DieselEngineModule(120));
+
+        // Activity component for subcomponent builder(petrol engine implementation)
         ActivityComponent component = ((ScopeApp) getApplication()).getAppComponent()
-                .getActivityComponent(new DieselEngineModule(120));
+                .getActivityComponentBuilder()
+                .horsePower(150)
+                .engineCapacity(1400)
+                .build();
+
         // Need to pass/inject current activity to the CarComponent while there is no constructor available
         component.inject(this);
         // car = component.getCar();
