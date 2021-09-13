@@ -18,5 +18,12 @@ public interface AppComponent {
 
 
     // Call the subcomponent builder
-    ActivityComponent.Builder getActivityComponentBuilder();
+    // ActivityComponent.Builder getActivityComponentBuilder();
+
+    // Call the subcomponent factory
+    ActivityComponent.Factory getActivityComponentFactory();
+    @Component.Factory
+    interface Factory {
+        AppComponent create(DriverModule driverModule);
+    }
 }

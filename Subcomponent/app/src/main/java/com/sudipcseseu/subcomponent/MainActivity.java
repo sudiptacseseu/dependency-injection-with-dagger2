@@ -24,11 +24,15 @@ public class MainActivity extends AppCompatActivity {
         // ActivityComponent component = ((ScopeApp) getApplication()).getAppComponent().getActivityComponent(new DieselEngineModule(120));
 
         // Activity component for subcomponent builder(petrol engine implementation)
-        ActivityComponent component = ((ScopeApp) getApplication()).getAppComponent()
+        /*ActivityComponent component = ((ScopeApp) getApplication()).getAppComponent()
                 .getActivityComponentBuilder()
                 .horsePower(150)
                 .engineCapacity(1400)
-                .build();
+                .build();**/
+
+        // Activity component for subcomponent factory(this will give compile time error handling)
+        ActivityComponent component = ((ScopeApp) getApplication()).getAppComponent()
+                .getActivityComponentFactory().create(150, 1400);
 
         // Need to pass/inject current activity to the CarComponent while there is no constructor available
         component.inject(this);
